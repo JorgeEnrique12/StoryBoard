@@ -101,4 +101,40 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         <url-pattern>/NuevoUsuario</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>MainProyects</servlet-name>
+        <servlet-class>MainProyects</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainProyects</servlet-name>
+        <url-pattern>/MisProyectos</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainStoryBoards</servlet-name>
+        <servlet-class>MainStoryBoards</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainStoryBoards</servlet-name>
+        <url-pattern>/MainStoryBoards</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateStoryBoard</servlet-name>
+        <servlet-class>CreateStoryBoard</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateStoryBoard</servlet-name>
+        <url-pattern>/CreateStoryBoard</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Storyboardsprof</servlet-name>
+        <servlet-class>Storyboardsprof</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Storyboardsprof</servlet-name>
+        <url-pattern>/StoryBoard1</url-pattern>
+    </servlet-mapping>
+
 </web-app>

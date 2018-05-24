@@ -56,7 +56,7 @@ public class MainAdmin extends HttpServlet {
         
         out.println("<div class='row justify-content-center'>");
         out.println("<div class='pb-2 mt-4 mb-2 border-bottom' style='font-family: Snell Roundhand, cursive;' align='center'>");
-        out.println("<h3><b>StoryOnline</b></h3>");
+        out.println("<img src='fondo.png' class='img-fluid' alt='Responsive image'>");
         out.println("</div>");
         out.println("</div>");
         out.println("<div class='row justify-content-center'>");
@@ -76,6 +76,10 @@ public class MainAdmin extends HttpServlet {
         out.println("</div>");
         out.println("<div class='col-10' style='background: rgb(255, 255, 255)'>");
         out.println("<H1>Bienvenido(a) Administrador(a):  "+user+"</H1>");
+
+        
+
+
         out.println("</div>");
         out.println("</div>");
         out.println("</div>");

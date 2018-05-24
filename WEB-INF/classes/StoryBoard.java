@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class StoryBoard extends HttpServlet {
@@ -14,6 +16,9 @@ public class StoryBoard extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+        String ruta = request.getSession().getServletContext().getRealPath("./icons");
+        Images imagenes =  new Images(ruta,"icons");
+        List<Listas> totalimag = imagenes.generateLists();
         out.println("<!DOCTYPE html>");
         out.println("<html lang='es'>");
         out.println("<head>");        
@@ -42,7 +47,7 @@ public class StoryBoard extends HttpServlet {
         out.println("<div class='row'>");
         out.println("<div class='col-sm-1 my-auto'>");
         out.println("<button id='bprev' class='btn btn-info'>");
-        out.println("<span class='glyphicon glyphicon-chevron-left'>Prev</span>");
+        out.println("<i class='fas fa-arrow-left'></i>");
         out.println("</button>");
         out.println("</div>");
         out.println("<div class='col-sm-10 my-auto'>");
@@ -50,7 +55,7 @@ public class StoryBoard extends HttpServlet {
         out.println("</div>");
         out.println("<div class='col-sm-1 my-auto'>");
         out.println("<button id='bsig' class='btn btn-info'>");
-        out.println("<span class='glyphicon glyphicon-chevron-right'>Next</span>");
+        out.println("<i class='fas fa-arrow-right'></i>");
         out.println("</button>");
         out.println("</div>");
         out.println("</div>");
@@ -69,32 +74,43 @@ public class StoryBoard extends HttpServlet {
         out.println("<br/>");
         out.println("<div class='container-fluid'>");
         out.println("<div class='text-center'>");
-        out.println("<div class='row'>");
-        out.println("<div class='dropdown'>");
-        out.println("<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>");
-        out.println("Jardineria");
-        out.println("</button>");
-        out.println("<div class='dropdown-menu' aria-labelledby='dropdownMenu2'>");
-        out.println("<div class='btn-group container-fluid'>");
-        out.println("<button id='button1' class='btn btn-info'>Circulo</button>");
-        out.println("<button id='button2' class='btn btn-info'>Rectangulo</button>");
-        out.println("<button id='button3' class='btn btn-info'>Linea</button>");
-        out.println("<button id='button4' class='btn btn-info'><img src='png/002-bee.png' alt='' class='img-responsive' width='60' height='60'/></button>");
-        out.println("<button id='button5' class='btn btn-info'><img src='png/001-gloves.png' alt='' class='img-responsive' width='60' height='60'/></button>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("<div class='row'>");
-        out.println("<div class='btn-group container-fluid'>");
-        out.println("<button id='button6' class='btn btn-info'>SVG</button>");
-        out.println("<button id='button7' class='btn btn-info'>SVG</button>");
-        out.println("<button id='button8' class='btn btn-info'>SVG</button>");
-        out.println("<button id='button9' class='btn btn-info'>SVG</button>");
-        out.println("<button id='button10' class='btn btn-info'>SVG</button>");
-        out.println("<button id='button11' class='btn btn-info'>SVG</button>");
-        out.println("</div>");
-        out.println("</div>");
+        
+        
+
+        for (int i = 0; i < totalimag.size(); i++) {
+            Listas l = totalimag.get(i);
+            System.out.println(l.name);
+            out.println("<div class='row'>");
+            out.println("<div class='dropdown'>");
+            out.println("<button class='btn btn-secondary showicons btn-categories' name='"+l.name+"'>");
+            out.println(l.name);
+            out.println("</button>");
+            List<String> pnglist = (List<String>)l.PNGlList;
+            List<String> svglist = (List<String>)l.SVGList;
+            out.println("<div class = 'containertohide' name = '"+l.name+"'>");
+            out.println("<div>");
+            out.println("<div class='btn-group container-fluid'>");
+            for (int j = 0; j < pnglist.size(); j++) {
+                String r = pnglist.get(j);
+                String ruta2 = svglist.get(j);
+                out.println("<button id ='1' class='btn btn-info iconos' name='"+r+"'><img src='"+r+"' alt='' class='img-responsive' width='60' height='60'/></button>");
+                if ((j+1)%8==0) {
+                    out.println("</div>");
+                    out.println("</div>");
+                    out.println("<div>");
+                    out.println("<div class='btn-group container-fluid'>");  
+                }
+            }
+            if((pnglist.size()+1)%8 != 0){
+                out.println("</div>");
+                out.println("</div>");
+            }
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+
+        
+        }
         out.println("</div>");
         out.println("</div>");
         out.println("<button id='save' class ='btn btn-success'>Save</button>");

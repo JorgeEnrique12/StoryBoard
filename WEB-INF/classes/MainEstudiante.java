@@ -14,6 +14,8 @@ public class MainEstudiante extends HttpServlet {
         PrintWriter out = response.getWriter();
         String user = request.getParameter("user");
         String type = request.getParameter("type");
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("user",  user);
         out.println("<!DOCTYPE html>");
         out.println("<html lang='es' class='h-100'>");
         out.println("<head>");
@@ -26,18 +28,18 @@ public class MainEstudiante extends HttpServlet {
         out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>");
         out.println("<script src='./jss/readXML.js'></script>");
         out.println("<link rel='stylesheet' href='./css/login.css' type='text/css'>");
+        out.println("<link rel='stylesheet' href='./css/estudiante.css' type='text/css'>");
         out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.12/css/all.css' integrity='sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9' crossorigin='anonymous'>");
         out.println("<meta http-equiv='X-UA-Compatible' content='ie=edge'>");
         out.println("<title>Document</title>");
         out.println("</head>");
         out.println("<body class='h-100'>");
         out.println("<nav class='navbar navbar-expand-lg navbar-dark' style='background: #3E6DB1'>");
-        out.println("<a class='navbar-brand' href='#'>Navbar</a>");
+        out.println("<a class='navbar-brand' href='#'>TW</a>");
         out.println("<ul class='navbar-nav mr-auto'>");
         out.println("<li class='nav-item active'>");
-        out.println("<a class='nav-link'>Inicio</a>");
+        out.println("<a class='nav-link' href='./Estudiante?user='"+user+"'>Inicio</a>");
         out.println("</li>");
-  
         out.println("</ul>");
         out.println("<ul class='navbar-nav ml-auto'>");
         out.println("<li class='nav-item'>");
@@ -45,12 +47,9 @@ public class MainEstudiante extends HttpServlet {
         out.println("</li>");
         out.println("</ul>");
         out.println("</nav>");
-
-
         out.println("<div class='container-fluid h-100'>");
         out.println("<div class='row justify-content-center h-100'>");
         out.println("<div class='col-2' style='background: rgb(33, 37, 41)'>");
-        
         out.println("<div class='row justify-content-center'>");
         out.println("<div class='pb-2 mt-4 mb-2 border-bottom' style='font-family: Snell Roundhand, cursive;' align='center'>");
         out.println("<h3><b>StoryOnline</b></h3>");
@@ -59,12 +58,27 @@ public class MainEstudiante extends HttpServlet {
         out.println("<div class='row justify-content-center'>");
         out.println("<div class='pb-2 mt-4 mb-2' >");
         out.println("<div class='container'>");
+        out.println("</div>");
+        out.println("</div>");
+        out.println("</div>");
+
+
+        
+
+
 
         out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
-        out.println("</div>");
         out.println("<div class='col-10' style='background: rgb(255, 255, 255)'>");
+        out.println("<ul class='nav nav-tabs'>");
+        out.println("<li class='nav-item'>");
+        out.println("<a class='nav-link' href='./MisProyectos'>Mis Proyectos</a>");
+        out.println("</li>");
+        out.println("<li class='nav-item'>");
+        out.println("<a class='nav-link' href='#'>Link</a>");
+        out.println("</li>");
+        out.println("<li class='nav-item'>");
+        out.println("<a class='nav-link' href='#'>Link</a>");
+        out.println("</ul>");
         out.println("<H1>Bienvenido (a) Estudiante :  "+user+"</H1>");
         out.println("</div>");
         out.println("</div>");

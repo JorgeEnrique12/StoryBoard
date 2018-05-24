@@ -2,6 +2,10 @@ $(document).ready(function(){
     var canvas = new fabric.Canvas('canvas');
     var index = 1
 
+    $(".containertohide").each(function(){
+      $(this).hide();
+    });
+
     $('#bprev').click(function() {
         if (index == 1) {
           alert('Esta es la primer hoja');
@@ -111,6 +115,25 @@ $(document).ready(function(){
             canvas.add(group);
         });
       }, 'text');
+    });
+
+
+    $('.iconos').click(function() {
+      var ruta = this.name;
+
+      fabric.Image.fromURL(ruta, function(myImg) {
+      var img1 = myImg.set({ left: 150, top: 150 ,width:150,height:150});
+      canvas.add(img1); 
+      });
+    });
+
+    $('.showicons').click(function() {
+      var expresion = 'div[name='+this.name+']';
+      $(expresion).toggle(2000);
+    });
+
+    $(document).change(function() {
+      
     });
 
   });

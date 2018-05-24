@@ -79,19 +79,16 @@ public class ModificarUser extends HttpServlet {
         out.println("<div class='row justify-content-center'>");
         out.println("<div class='col-4'>");
         out.println("<h1>Modificar Usuario</h1>");
+        
         out.println("<form action = './UpdateModify' method = 'get' id='form1'>");
         out.println("<div class='form-group'>");
         out.println("<label for='inputName'>Nombre</label>");
         out.println("<input type='text' name='nombre' class='form-control' id='inputName' value ='"+usertomodify.name+"'>");
         out.println("<label for='inputCorreo'>Correo</label>");
         out.println("<input type='text' name='correo' class='form-control' id='inputCorreo' value ='"+usertomodify.correo+"'>");
-        
         out.println("<input type='text' name='usuario' class='form-control' id='inputUser' value ='"+usertomodify.username+"'>");
-
         out.println("<label for='inputUser2'>Usuario</label>");
         out.println("<input type='text' name='seconduser' class='form-control' id='inputUser2' value ='"+usertomodify.username+"'>");
-       
-
         out.println("<label for='inputPass'>Contraseña</label>");
         out.println("<input type='password' name='contrasena1' class='form-control' id='inputPass' value ='"+usertomodify.password+"'>");
         out.println("<label for='inputPass2'>Reingresa la Contraseña</label>");
@@ -109,6 +106,7 @@ public class ModificarUser extends HttpServlet {
         out.println("<button class='btn buttonregister' type='submit'><i class='fas fa-save'></i></button>");
         out.println("</div>");
         out.println("</form>");
+
         out.println("</div>");
         out.println("</div>");
         out.println("</div>");

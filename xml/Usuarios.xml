@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Usuarios>
-    
-<Usuario><Nombre>Jorge Enrique Maldonado Carpio</Nombre><Correo>enriquejorge1255@gmail.com</Correo><Username>Jorge1255</Username><Password>Jorgeenrique12</Password><Tipo>Administrador</Tipo></Usuario><Usuario><Nombre>Angel Hernandez</Nombre><Correo>angel21@gmail.com</Correo><Username>Angel12</Username><Password>12345678</Password><Tipo>Estudiante</Tipo></Usuario><Usuario><Nombre>Ruben Peredo</Nombre><Correo>peredo@gmail.com</Correo><Username>PeredoProfesor</Username><Password>Tweb</Password><Tipo>Profesor</Tipo></Usuario></Usuarios>
+<Usuarios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="storyboarduserschema.xsd">
+    <Usuario>
+        <Nombre>Jorge Enrique Maldonado Carpio</Nombre>
+        <Correo>enriquejorge1255@gmail.com</Correo>
+        <Username>Jorge1255</Username>
+        <Password>Jorgeenrique12</Password>
+        <Tipo>Administrador</Tipo>
+    </Usuario>
+    <Usuario>
+        <Nombre>Ruben Peredo</Nombre>
+        <Correo>peredo@gmail.com</Correo>
+        <Username>PeredoProfesor</Username>
+        <Password>Tweb</Password>
+        <Tipo>Profesor</Tipo></Usuario><Usuario><Nombre>Oscar Israel Castillo Magaña</Nombre><Correo>oscar12@gmail.com</Correo><Username>Oscar12</Username><Password>1234</Password><Tipo>Estudiante</Tipo></Usuario><Usuario><Nombre>Yesenia Campos</Nombre><Correo>yes12@gmail.com</Correo><Username>Yes12</Username><Password>12345678</Password><Tipo>Estudiante</Tipo></Usuario></Usuarios>
