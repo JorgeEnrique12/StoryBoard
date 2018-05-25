@@ -1,5 +1,38 @@
 $(document).ready(function(){
     var canvas = new fabric.Canvas('canvas');
+
+    $('.iconos img[draggable="true"]').on('dragstart',function(event){
+       
+    window.draggimagesrc=this.src;
+    })
+
+    $('.canvas-container').on('dragover', function(event){
+      event.preventDefault();  
+      event.stopPropagation();
+      var rect = window.canvas.getBoundingClientRect();
+      window.draggX=(event.clientX-rect.left);
+      window.draggY=(event.clientY-rect.top);
+    });
+
+    $('.canvas-container').on('drop', function(event){
+      event.preventDefault();  
+    event.stopPropagation();
+      var ruta = window.draggimagesrc;
+      fabric.Image.fromURL(ruta, function(myImg) {
+      var img1 = myImg.set({ left: window.draggX, top: window.draggY ,width:150,height:150});
+      canvas.add(img1); 
+      
+        });
+    });
+    $('body').keydown(function(event){
+      var letter = (String.fromCharCode(event.which)); 
+   
+      if(event.keyCode == 8){
+        canvas.remove(canvas.getActiveObject());
+        canvas.renderAll();
+    };
+   })
+
     var index = 1
 
     $(".containertohide").each(function(){
@@ -14,12 +47,12 @@ $(document).ready(function(){
           index = index - 1
         }
 
-        $('#numpa').text("Pagina: " + index);
+        $('#numpa').text("Página: " + index);
 
     });
     $('#bsig').click(function() {
         index = index + 1
-        $('#numpa').text("Pagina: " + index);
+        $('#numpa').text("Página: " + index);
 
     });
     $('#save').click(function() {
@@ -119,8 +152,7 @@ $(document).ready(function(){
 
 
     $('.iconos').click(function() {
-      var ruta = this.name;
-
+      var ruta = this.getAttribute('name');
       fabric.Image.fromURL(ruta, function(myImg) {
       var img1 = myImg.set({ left: 150, top: 150 ,width:150,height:150});
       canvas.add(img1); 
@@ -131,9 +163,4 @@ $(document).ready(function(){
       var expresion = 'div[name='+this.name+']';
       $(expresion).toggle(2000);
     });
-
-    $(document).change(function() {
-      
-    });
-
   });

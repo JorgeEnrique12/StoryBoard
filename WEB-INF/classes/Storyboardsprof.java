@@ -17,6 +17,7 @@ public class Storyboardsprof extends HttpServlet {
         String ruta = request.getSession().getServletContext().getRealPath("./icons");
         Images imagenes =  new Images(ruta,"icons");
         List<Listas> totalimag = imagenes.generateLists();
+        String nombre = request.getParameter("nombre_story");
         out.println("<!DOCTYPE html>");
         out.println("<html lang='es' class=''>");
         out.println("<head>");
@@ -92,7 +93,7 @@ public class Storyboardsprof extends HttpServlet {
         
         out.println("<div class='container-fluid'>");
         out.println("<div class='page-header'>");
-        out.println("<h1>Historia</h1>");
+        out.println("<h1>"+nombre+"</h1>");
         out.println("</div>");
         out.println("</div>");
         out.println("<div class='container-fluid'>");
@@ -146,7 +147,7 @@ public class Storyboardsprof extends HttpServlet {
             for (int j = 0; j < pnglist.size(); j++) {
                 String r = pnglist.get(j);
                 String ruta2 = svglist.get(j);
-                out.println("<button id ='1' class='btn btn-info iconos' name='"+r+"'><img src='"+r+"' alt='' class='img-responsive' width='60' height='60'/></button>");
+                out.println("<div id ='1' class='btn btn-info iconos' name='"+r+"'><img src='"+r+"' alt='' class='img-responsive' width='60' height='60' draggable='true' /></div>");
                 if ((j+1)%8==0) {
                     out.println("</div>");
                     out.println("</div>");
