@@ -141,7 +141,7 @@ public class Storyboardsprof extends HttpServlet {
             out.println("</button>");
             List<String> pnglist = (List<String>)l.PNGlList;
             List<String> svglist = (List<String>)l.SVGList;
-            out.println("<div class = 'containertohide' name = '"+l.name+"'>");
+            out.println("<div  class = 'containertohide' name = '"+l.name+"'>");
             out.println("<div>");
             out.println("<div class='btn-group container-fluid'>");
             for (int j = 0; j < pnglist.size(); j++) {
@@ -167,8 +167,10 @@ public class Storyboardsprof extends HttpServlet {
         }
         out.println("</div>");
         out.println("</div>");
-        out.println("<button id='save' class ='btn btn-success'>Save</button>");
-
+        out.println("<form action=./SaveStoryBoard method ='post'>");
+        out.println("<input hidden id='slides' type='text' name='slides' size='10'/>");
+        out.println("<button id='save' type='submit' class ='btn btn-success'>Save</button>");
+        out.println("</form>");
 
         out.println("</div>");
         out.println("</div>");

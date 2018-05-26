@@ -1,5 +1,8 @@
 $(document).ready(function(){
     var canvas = new fabric.Canvas('canvas');
+    var slides = new Array();
+    var index = 0;
+    var maxindex = 0;
 
     $('.iconos img[draggable="true"]').on('dragstart',function(event){
        
@@ -33,36 +36,41 @@ $(document).ready(function(){
     };
    })
 
-    var index = 1
-
     $(".containertohide").each(function(){
       $(this).hide();
     });
 
     $('#bprev').click(function() {
-        if (index == 1) {
+        if (index == 0) {
           alert('Esta es la primer hoja');
         }
-        else {
+        else {  
+          slides[index] = JSON.stringify(canvas);
+          canvas.clear();
+          canvas.renderAll();
+          canvas.loadFromJSON(slides[index-1]);
           index = index - 1
         }
 
-        $('#numpa').text("Página: " + index);
+        $('#numpa').text("Página: " + (index+1));
 
     });
     $('#bsig').click(function() {
-        index = index + 1
-        $('#numpa').text("Página: " + index);
+        if (maxindex==index) {
+          maxindex = maxindex + 1;
+          slides.push(JSON.stringify(canvas));
+          canvas.clear();
+          canvas.renderAll();
+        }else{
+          slides[index] = JSON.stringify(canvas);
+          canvas.clear();
+          canvas.renderAll();
+          canvas.loadFromJSON(slides[index+1]);
+        }
+        console.log(slides)
+        index = index + 1 
+        $('#numpa').text("Página: " + (index+1));
 
-    });
-    $('#save').click(function() {
-      var textFile = null;
-      var data = new Blob([JSON.stringify(canvas)], {type: 'text/plain'});
-      if (textFile !== null) {
-        window.URL.revokeObjectURL(textFile);
-      }
-      textFile = window.URL.createObjectURL(data);
-      var file = new File([data],"hola.txt")
     });
 
     $('#shapecolor').change(function() {
@@ -123,34 +131,6 @@ $(document).ready(function(){
           canvas.calcOffset();
 
     });
-    $('#button4').click(function() {
-      $.get('svg/bee.svg', function(svg){
-          var svgString = svg;
-          fabric.loadSVGFromString(svgString, function(results, options) {
-            results.reverse()
-            var group = new fabric.Group(results, {
-              left: 200,
-              top: 100
-            });
-            canvas.add(group);
-        });
-      }, 'text');
-    });
-    $('#button5').click(function() {
-      $.get('svg/001-gloves.svg', function(svg){
-          var svgString = svg;
-          fabric.loadSVGFromString(svgString, function(results, options) {
-            results.reverse()
-            var group = new fabric.Group(results, {
-              left: 200,
-              top: 100
-            });
-            canvas.add(group);
-        });
-      }, 'text');
-    });
-
-
     $('.iconos').click(function() {
       var ruta = this.getAttribute('name');
       fabric.Image.fromURL(ruta, function(myImg) {
@@ -163,4 +143,21 @@ $(document).ready(function(){
       var expresion = 'div[name='+this.name+']';
       $(expresion).toggle(2000);
     });
+    $('#save').click(function (){
+        if (slides.length == 0) {
+          slides.push(JSON.stringify(canvas));
+        }
+        if (maxindex==index) {
+          slides[index] = JSON.stringify(canvas);
+          
+        }
+        $('#slides').val(slides);
+        return true;
+    });
   });
+
+  function Redirect(URL){
+    window.location.assign(URL)
+  }
+
+

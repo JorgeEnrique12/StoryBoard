@@ -73,6 +73,7 @@ public class MainStoryBoards extends HttpServlet {
         out.println("<br/>");
      
         out.println("<h1>Mis StoryBoards</h1>");
+        
         out.println("<a href='CreateStoryBoard'><button class='btn btn-primary'><i class='fas fa-plus'></i></button></a>");
         out.println("<br/>");
         out.println("<br/>");
