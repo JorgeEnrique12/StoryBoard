@@ -7,9 +7,4 @@
         <Password>Jorgeenrique12</Password>
         <Tipo>Administrador</Tipo>
     </Usuario>
-    <Usuario>
-        <Nombre>Ruben Peredo</Nombre>
-        <Correo>peredo@gmail.com</Correo>
-        <Username>PeredoProfesor</Username>
-        <Password>Tweb</Password>
-        <Tipo>Profesor</Tipo></Usuario><Usuario><Nombre>Oscar Israel Castillo Magaña</Nombre><Correo>oscar12@gmail.com</Correo><Username>Oscar12</Username><Password>1234</Password><Tipo>Estudiante</Tipo></Usuario><Usuario><Nombre>Yesenia Campos</Nombre><Correo>yes12@gmail.com</Correo><Username>Yes12</Username><Password>12345678</Password><Tipo>Estudiante</Tipo></Usuario></Usuarios>
+    <Usuario><Nombre>Profesor</Nombre><Correo>Prof@gmail.com</Correo><Username>Profesor</Username><Password>1234</Password><Tipo>Profesor</Tipo></Usuario></Usuarios>

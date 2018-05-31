@@ -1,0 +1,8 @@
+/**
+ * Bold text style plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-text-bold {
+    @include button-icon('edit-bold.png');
+}

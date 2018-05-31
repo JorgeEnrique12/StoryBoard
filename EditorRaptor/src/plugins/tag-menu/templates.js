@@ -1,0 +1,1 @@
+templateRegister("tag-menu.item", "<li><a data-value=\"{{tag}}\">{{name}}</a></li>");

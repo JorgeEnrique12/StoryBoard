@@ -1,0 +1,12 @@
+/**
+ * History plugin
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-history-undo {
+    @include button-icon('arrow-curve-180-left.png');
+}
+
+.raptor-ui-history-redo {
+    @include button-icon('arrow-curve.png');
+}

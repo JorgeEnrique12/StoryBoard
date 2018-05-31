@@ -1,0 +1,8 @@
+/**
+ * Sub script text style plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-text-sub {
+    @include button-icon('edit-subscript.png');
+}

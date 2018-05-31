@@ -14,6 +14,8 @@ public class MainProfesor extends HttpServlet {
         PrintWriter out = response.getWriter();
         String user = request.getParameter("user");
         String type = request.getParameter("type");
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("user",user);
         out.println("<!DOCTYPE html>");
         out.println("<html lang='es' class='h-100'>");
         out.println("<head>");
@@ -35,7 +37,7 @@ public class MainProfesor extends HttpServlet {
         out.println("<a class='navbar-brand' href='#'>Navbar</a>");
         out.println("<ul class='navbar-nav mr-auto'>");
         out.println("<li class='nav-item active'>");
-        out.println("<a class='nav-link'>Inicio</a>");
+        out.println("<a class='nav-link' href='./Profesor?user='"+user+"'>Inicio</a>");
         out.println("</li>");
   
         out.println("</ul>");

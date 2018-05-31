@@ -1,0 +1,12 @@
+/**
+ * Show guides plugin
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-guides {
+    @include button-icon('guide.png');
+}
+
+.raptor-ui-guides-visible * {
+    outline: 1px dashed rgba(0, 0, 0, 0.5);
+}

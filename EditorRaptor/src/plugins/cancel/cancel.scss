@@ -1,0 +1,8 @@
+/**
+ * Cancel plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-cancel {
+    @include button-icon('cross.png');
+}

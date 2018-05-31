@@ -146,4 +146,31 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         <url-pattern>/SaveStoryBoard</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>UploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateXMLVideo</servlet-name>
+        <servlet-class>UpdateXMLVideo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateXMLVideo</servlet-name>
+        <url-pattern>/UpdateXMLVideo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateXMLTexto</servlet-name>
+        <servlet-class>UpdateXMLTexto</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateXMLTexto</servlet-name>
+        <url-pattern>/UpdateXMLTexto</url-pattern>
+    </servlet-mapping>
+
 </web-app>

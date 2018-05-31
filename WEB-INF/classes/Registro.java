@@ -11,6 +11,9 @@ import java.io.FileWriter;
 import org.jdom.input.SAXBuilder;
 import org.jdom.input.DOMBuilder;
 import java.io.FileInputStream;  
+import java.io.FileOutputStream;  
+import java.io.OutputStream;  
+import java.io.InputStream;  
 import java.io.File;
 
 public class Registro extends HttpServlet {
@@ -20,8 +23,35 @@ public class Registro extends HttpServlet {
 		response.setHeader("Pragma", "no-cache");
 		request.setCharacterEncoding("UTF-8");
 		String ruta = request.getSession().getServletContext().getRealPath("/xml/Usuarios.xml");
+		String ruta2 = request.getSession().getServletContext().getRealPath("/Usuarios");
 		XML handler = new XML(ruta,request.getParameter("nombre"),request.getParameter("correo"),request.getParameter("user"),request.getParameter("contrasena1"),request.getParameter("tipo"));
 		handler.start();
+		new File(ruta2 +"/"+request.getParameter("user")).mkdir();
+		new File(ruta2 +"/"+request.getParameter("user")+"/videos").mkdir();
+		File source = new File(ruta2 + "/base.xml");
+		File dest = new File(ruta2 +"/"+request.getParameter("user") +"/base.xml");
+		try {
+			copyFile(source, dest);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		response.sendRedirect("./AltasBajasCambios");
+	}
+
+	private void copyFile(File source, File dest) throws IOException {
+		InputStream is = null;
+		OutputStream os = null;
+		try {
+			is = new FileInputStream(source);
+			os = new FileOutputStream(dest);
+			byte[] buffer = new byte[1024];
+			int length;
+			while ((length = is.read(buffer)) > 0) {
+				os.write(buffer, 0, length);
+			}
+		} finally {
+			is.close();
+			os.close();
+		}
 	}
 }

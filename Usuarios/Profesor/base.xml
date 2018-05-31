@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StoryBoards>
+    <StoryBoard>
+        <Nombre>Texto</Nombre>
+        <Texto>Jorge Enrique Maldonado Carpio</Texto>
+        <Tipo>Texto</Tipo>
+    </StoryBoard>
+    <StoryBoard>
+        <Nombre>HISTORIA BONITA</Nombre>
+        <Texto>&lt;p&gt;ESTA ES UNA HISTORIA BONITA&lt;/p&gt;</Texto>
+        <Tipo>Texto</Tipo>
+    </StoryBoard>
+</StoryBoards>

@@ -1,0 +1,22 @@
+/**
+ * Text alignment plugin
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+@import 'compass/css3/opacity';
+
+.raptor-ui-align-left {
+    @include button-icon('edit-alignment.png');
+}
+
+.raptor-ui-align-right {
+    @include button-icon('edit-alignment-right.png');
+}
+
+.raptor-ui-align-center {
+    @include button-icon('edit-alignment-center.png');
+}
+
+.raptor-ui-align-justify {
+    @include button-icon('edit-alignment-justify.png');
+}

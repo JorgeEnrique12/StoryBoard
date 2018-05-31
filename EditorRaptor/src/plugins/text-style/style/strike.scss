@@ -1,0 +1,8 @@
+/**
+ * strike text style plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-text-strike {
+    @include button-icon('edit-strike.png');
+}

@@ -151,6 +151,10 @@ $(document).ready(function(){
           slides[index] = JSON.stringify(canvas);
           
         }
+        for (let i = 0; i < slides.length; i++) {
+          slides[i] = slides [i] + "?";
+          
+        }
         $('#slides').val(slides);
         return true;
     });

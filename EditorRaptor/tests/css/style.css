@@ -1,0 +1,16 @@
+.test-input table,
+.test-expected table,
+.test-output table {
+  border-collapse: separate; }
+
+.test-input table, .test-input td, .test-input th,
+.test-expected table,
+.test-expected td,
+.test-expected th,
+.test-output table,
+.test-output td,
+.test-output th {
+  white-space: normal;
+  border: 1px dotted #777777;
+  margin: 5px;
+  padding: 5px; }

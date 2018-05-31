@@ -1,33 +1,29 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang='en'>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Dialog - Modal message</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-      function save() {
-        $( "#dialog-message" ).dialog({
-            modal: true,
-            buttons: {
-                Ok: function() {
-                $( this ).dialog( "close" );
-                }
-            }
-        });
-    }
-  </script>
+  <meta charset='UTF-8'>
+  <title>Summernote</title>
+  <link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet'>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
+  <script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
+  <link href='http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css' rel='stylesheet'>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js'></script>
 </head>
 <body>
- 
-<div id="dialog-message" title="Download complete">
-
-</div>
- 
-<button onclick="save()">Save</button> 
- 
+    <form method='post'>
+        <textarea id='summernote' name='editordata'></textarea>
+        <input type='submit' />
+      </form>
+      <button onclick='getdata();'>Text</button>
+      
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+    function getdata() {
+      x = $('#summernote').summernote('code')
+      alert(x);
+    }
+  </script>
 </body>
 </html>

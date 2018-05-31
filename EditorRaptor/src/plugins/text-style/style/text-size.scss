@@ -1,0 +1,12 @@
+/**
+ * Font size plugin
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-text-size-increase {
+    @include button-icon('edit-size-up.png');
+}
+
+.raptor-ui-text-size-decrease {
+    @include button-icon('edit-size-down.png');
+}

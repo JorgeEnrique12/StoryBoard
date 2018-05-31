@@ -1,0 +1,36 @@
+/**
+ * Paste plugin
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ * @author Michael Robinson <michael@panmedia.co.nz>
+ */
+.raptor-plugin-paste-panel-tabs {
+    width: 100%;
+    height: 100%;
+}
+
+.raptor-plugin-paste .ui-tabs a {
+    outline: none;
+}
+
+.raptor-plugin-paste-panel-tabs .raptor-plugin-paste-tab  {
+    border-top: none;
+    border: 1px solid #c2c2c2;
+    overflow: scroll;
+    height: 80%;
+}
+
+.raptor-plugin-paste-panel-tabs .raptor-plugin-paste-area {
+    background-color: #fff;
+    border: none;
+    min-height: 300px;
+    min-width: 90%;
+    padding: 2px;
+}
+
+.raptor-plugin-paste-dialog .ui-dialog-content {
+    overflow: hidden;
+    width: 100% !important;
+    height: 100%;
+    @include box-sizing(border-box);
+}

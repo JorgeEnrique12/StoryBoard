@@ -1,0 +1,42 @@
+/**
+ * Table plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-table-create-menu td {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+}
+
+.raptor-ui-table-create-menu .raptor-ui-table-create-menu-hover {
+    border: 1px solid #f00;
+}
+
+.raptor-ui-table-create {
+    @include button-icon('table.png');
+}
+
+.raptor-ui-table-insert-row {
+    @include button-icon('table-insert-row.png');
+}
+
+.raptor-ui-table-insert-column {
+    @include button-icon('table-insert-column.png');
+}
+
+.raptor-ui-table-delete-row {
+    @include button-icon('table-delete-row.png');
+}
+
+.raptor-ui-table-delete-column {
+    @include button-icon('table-delete-column.png');
+}
+
+.raptor-ui-table-merge-cells {
+    @include button-icon('table-join.png');
+}
+
+.raptor-ui-table-split-cells {
+    @include button-icon('table-split.png');
+}

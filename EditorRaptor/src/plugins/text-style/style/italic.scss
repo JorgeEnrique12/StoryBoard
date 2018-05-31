@@ -1,0 +1,8 @@
+/**
+ * Italic text style plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.raptor-ui-text-italic {
+    @include button-icon('edit-italic.png');
+}
