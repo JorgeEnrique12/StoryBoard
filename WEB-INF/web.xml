@@ -172,5 +172,13 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         <servlet-name>UpdateXMLTexto</servlet-name>
         <url-pattern>/UpdateXMLTexto</url-pattern>
     </servlet-mapping>
+      <servlet>
+        <servlet-name>playvideo</servlet-name>
+        <servlet-class>playvideo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>playvideo</servlet-name>
+        <url-pattern>/playvideo</url-pattern>
+    </servlet-mapping>
 
 </web-app>

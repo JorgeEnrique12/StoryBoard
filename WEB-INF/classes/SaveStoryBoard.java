@@ -12,14 +12,14 @@ import java.util.List;
 
 public class SaveStoryBoard extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user");
+		String tipo = (String)session.getAttribute("tipo");
+		String nombre = (String)session.getAttribute("nombre_story");
+		String ruta = request.getSession().getServletContext().getRealPath("/Usuarios/"+user+"/base.xml");
         String slides = request.getParameter("slides");
         StringTokenizer tokens=new StringTokenizer(slides, "?");
         List<String> slidestosave = new ArrayList();
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head></head>");
-        out.println("<body>");
         int i = 0;
         while(tokens.hasMoreTokens()){
             String cadena = tokens.nextToken();
@@ -29,11 +29,10 @@ public class SaveStoryBoard extends HttpServlet {
             slidestosave.add(cadena);
             i++;
         }
-        for ( i = 0; i < slidestosave.size(); i++) {
-            out.println(slidestosave.get(i)+"<br/><br/><br/>");
-        }
-        out.println("</body>");
-        out.println("</html>");
+        
+        XMLStoryBoard s = new XMLStoryBoard(ruta, nombre, slidestosave, tipo);
+        s.start();
+        response.sendRedirect("./MainStoryBoards");
 
 	}
 }

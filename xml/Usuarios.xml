@@ -7,4 +7,4 @@
         <Password>Jorgeenrique12</Password>
         <Tipo>Administrador</Tipo>
     </Usuario>
-    <Usuario><Nombre>Profesor</Nombre><Correo>Prof@gmail.com</Correo><Username>Profesor</Username><Password>1234</Password><Tipo>Profesor</Tipo></Usuario></Usuarios>
+    <Usuario><Nombre>Profesor</Nombre><Correo>Prof@gmail.com</Correo><Username>Profesor</Username><Password>1234</Password><Tipo>Profesor</Tipo></Usuario><Usuario><Nombre>Peredo</Nombre><Correo>peredo@gmail.com</Correo><Username>PeredoProfesor</Username><Password>1234</Password><Tipo>Profesor</Tipo></Usuario></Usuarios>

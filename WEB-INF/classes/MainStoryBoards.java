@@ -5,15 +5,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+
 
 
 public class MainStoryBoards extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        String user = (String)session.getAttribute("user");
+        String ruta = request.getSession().getServletContext().getRealPath("/Usuarios/"+user+"/base.xml");
         PrintWriter out = response.getWriter();
+        ListVideos lv = new ListVideos(ruta);
+        List<Video> videos = lv.generateList();
+        ListTextos lt = new ListTextos(ruta);
+        List<Texto> textos = lt.generateList();
+        ListStoryboards lc = new ListStoryboards(ruta);
+        List<CStoryBoard> stories = lc.generateList();
         out.println("<!DOCTYPE html>");
-        out.println("<html lang='es' class='h-100'>");
+        out.println("<html lang='es' style = 'min-height: 100%;'>");
         out.println("<head>");
         out.println("<title>Administrador</title>");
         out.println("<meta charset='UTF-8'>");
@@ -70,20 +81,101 @@ public class MainStoryBoards extends HttpServlet {
         out.println("</div>");
         out.println("<div class='col-10' style='background: rgb(255, 255, 255)'>");
         out.println("<div class='container'>");
-        out.println("<br/>");
-     
+        out.println("<br/>"); 
         out.println("<h1>Mis StoryBoards</h1>");
-        
         out.println("<a href='CreateStoryBoard'><button class='btn btn-primary'><i class='fas fa-plus'></i></button></a>");
         out.println("<br/>");
         out.println("<br/>");
-        out.println("</div>");
+        out.println("<h1>Videos</h1>");
+
+
+        out.println("<div class='row'>");
         
-
-
-
-
-
+        int cont = 0;
+        for (Video v : videos) {
+            out.println("<div class='col-3'>");
+            out.println("<div class='card '>");
+            out.println("<div class='card-header text-left'>");
+            out.println("<i class='fas fa-file-video'></i>");
+            out.println("</div>");
+            out.println("<div class='card-body text-center'>");
+            out.println("<h5 class='card-title'>"+v.name+"</h5>");
+            out.println("<p class='card-text'><img src='./img/video.png' class='img-fluid' width='50'>");
+            out.println("</div>");
+            out.println("<div class='card-footer text-muted text-center'>");
+            out.println("<a href='playvideo?ruta="+v.video+"'><button name ='"+v.video+"'class='btn btn-primary' onclick=''><i class='fas fa-play'></i></button></a>");
+            out.println("<button name ='"+v.name+"'class='btn btn-danger' onclick=''><i class='fas fa-trash-alt'></i></button>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            if ((cont+1)%4== 0) {
+                out.println("</div>");
+                out.println("<div class='row'>");
+            }
+        }
+        if ((cont+1)%4 != 0) {
+            out.println("</div>");
+        }
+        out.println("<h1>Textos</h1>");
+        out.println("<div class='row'>");
+        
+        cont = 0;
+        for (Texto t : textos) {
+            out.println("<div class='col-3'>");
+            out.println("<div class='card'>");
+            out.println("<div class='card-header text-left' >");
+            out.println("<i class='fas fa-file-alt'></i>");
+            out.println("</div>");
+            out.println("<div class='card-body text-center'>");
+            out.println("<h5 class='card-title'>"+t.name+"</h5>");
+            out.println("<p class='card-text'><i class='far fa-file-alt' style =' font-size:3em;'></i>");
+            out.println("</div>");
+            out.println("<div class='card-footer text-muted text-center'>");
+            
+            out.println("<button name ='"+t.name+"'class='btn btn-warning' onclick=''><i class='fas fa-pencil-alt'></i></button>");
+            out.println("<button name ='"+t.name+"'class='btn btn-danger' onclick=''><i class='fas fa-trash-alt'></i></button>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            if ((cont+1)%4 == 0) {
+                out.println("</div>");
+                out.println("<div class='row'>");
+            }
+        }
+        if ((cont+1)%4 != 0) {
+            out.println("</div>");
+        }
+        cont = 0;
+        out.println("<h1>Storyboards</h1>");
+        out.println("<div class='row'>");
+        for (CStoryBoard s : stories) {
+            out.println("<div class='col-3'>");
+            out.println("<div class='card'>");
+            out.println("<div class='card-header text-left' >");
+            out.println("<i class='fas fa-images'></i>");
+            out.println("</div>");
+            out.println("<div class='card-body text-center'>");
+            out.println("<h5 class='card-title'>"+s.name+"</h5>");
+            out.println("<p class='card-text'><i class='fas fa-image' style =' font-size:3em;'></i>");
+            out.println("</div>");
+            out.println("<div class='card-footer text-muted text-center'>");
+            out.println("<button name ='"+s.name+"'class='btn btn-warning' onclick=''><i class='fas fa-pencil-alt'></i></button>");
+            out.println("<button name ='"+s.name+"'class='btn btn-danger' onclick=''><i class='fas fa-trash-alt'></i></button>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            if ((cont+1)%4 == 0) {
+                out.println("</div>");
+                out.println("<div class='row'>");
+            }
+        }
+        if ((cont+1)%4 != 0) {
+            out.println("</div>");
+        }
+        out.println("<br/>");
+        out.println("<br/>");
+        out.println("<br/>");
+        out.println("</div>");
         out.println("</div>");
         out.println("</div>");
         out.println("</div>");
