@@ -1,1 +1,0 @@
-templateRegister("statistics.dialog", "<div> <ul> <li data-name=\"characters\"></li> <li data-name=\"words\"></li> <li data-name=\"sentences\"></li> <li data-name=\"truncation\"></li> </ul> </div>");
