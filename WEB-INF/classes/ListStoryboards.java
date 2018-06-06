@@ -42,12 +42,12 @@ public class ListStoryboards {
 		for (int i = 0; i < list.size(); i++) {
 
            Element node = (Element) list.get(i);    
-           if (node.getChildText("Texto") == null && node.getChildText("Video") == null){
+           if (node.getChildText("Texto") == null && node.getChildText("Video") == null && node.getChildText("Imagen") == null && node.getChildText("Audio")==null ){
 				   List<String> slides = new ArrayList<>();
 				   List l1 = node.getChild("Slides").getChildren();
 				    
-				   for (int j = 0; j < l1.size(); j++) {
-						Element node2 = (Element)list.get(j);
+				   for (int j = 0; j < Integer.parseInt(node.getChild("Slides").getAttributeValue("numero")); j++) {
+						Element node2 = (Element)l1.get(j);
 						XMLOutputter outp = new XMLOutputter();
 						
 						StringWriter sw = new StringWriter();
@@ -64,16 +64,35 @@ public class ListStoryboards {
 		}
     return stories;
 	}
-	/*public Texto getOneStory(String texto){
+	public CStoryBoard getOneStory(String story){
 
-		Texto storytosend = new Texto();
+		CStoryBoard storytosend = new CStoryBoard();
 		for (int i = 0; i < list.size(); i++) {
 			 Element node = (Element) list.get(i);   
 			 String name =  node.getChildText("Nombre");
-			 if (name.equals(texto)) {
+			 if (name.equals(story)) {
                 storytosend.name = name;
                 storytosend.tipo = node.getChildText("Tipo");
-                storytosend.texto = node.getChildText("Video");
+				
+				
+				List<String> slides = new ArrayList<>();
+				List l1 = node.getChild("Slides").getChildren();
+				 
+				for (int j = 0; j < Integer.parseInt(node.getChild("Slides").getAttributeValue("numero")); j++) {
+					 Element node2 = (Element)l1.get(j);
+					 XMLOutputter outp = new XMLOutputter();
+					 
+					 StringWriter sw = new StringWriter();
+					 try {
+						 outp.output(node2.getContent(), sw);
+					 } catch (Exception e) {}
+					 
+					 StringBuffer sb = sw.getBuffer();
+					 slides.add(sb.toString());
+					
+				}
+				storytosend.slides = slides;
+
 				storyXML = node;
 				indiceTexto = i;
 				return storytosend;
@@ -82,13 +101,20 @@ public class ListStoryboards {
 
 		return storytosend;
 	}
-	 //public void updateTexto(Element node,String Nombre,String Texto, String Tipo){
-		node.getChild("Nombre").setText(Nombre);
-		node.getChild("Texto").setText(Texto);
-		node.getChild("Tipo").setText(Tipo);
+	public void updateStory(Element node,List slides){
+		Element x = node.getChild("Slides");
+		x.getParent().removeContent(x);
+		Element s = new Element("Slides");
+		s.setAttribute("numero", ""+slides.size());
+		for (int i = 0; i < slides.size(); i++) {
+			Element n = new Element("slide");
+			n.setText((String)slides.get(i));
+			s.addContent(n);
+		}
+		node.addContent(s);
 		save();
 	}
-	public void deleteTexto(){
+	public void deleteStory(){
 		list.remove(indiceTexto);
 		save();
 	}
@@ -100,5 +126,5 @@ public class ListStoryboards {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 }

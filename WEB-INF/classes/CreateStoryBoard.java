@@ -85,6 +85,8 @@ public class CreateStoryBoard extends HttpServlet {
         out.println("<option value='StoryBoard'>StoryBoard</option>");
         out.println("<option value='Video'>Video</option>");
         out.println("<option value='Texto'>Texto</option>");
+        out.println("<option value='Imagen'>Imagen</option>");
+        out.println("<option value='Audio'>Audio</option>");
         out.println("</select>");
         out.println("</div>");
         out.println("</div>");

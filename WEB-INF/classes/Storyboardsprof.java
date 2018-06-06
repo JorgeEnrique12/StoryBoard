@@ -111,9 +111,6 @@ public class Storyboardsprof extends HttpServlet {
             out.println("</html>");
         
         }
-
-
-
         if (tipo.equals("Texto")){
             out.println("<!DOCTYPE html>");
             out.println("<html lang='es' class=''>");
@@ -194,7 +191,7 @@ public class Storyboardsprof extends HttpServlet {
             out.println("<h3>"+request.getParameter("nombre_story")+"</h3>"); 
             out.println("<form action='./UpdateXMLTexto' action = 'post' >");
             out.println("<textarea id='summernote' name='editordata'>Ingresa AQUI tu texto.</textarea>");
-            out.println("<input id='textosummer' type='text' name='texto' />");
+            out.println("<input hidden id='textosummer' type='text' name='texto' />");
             out.println("<button id ='savetext' type='submit' onclick='getdata();'>Text</button>");
             out.println("</form>");
             out.println("</div>");
@@ -207,12 +204,13 @@ public class Storyboardsprof extends HttpServlet {
             out.println("</html>");
         
         }
-
-
         if (tipo.equals("StoryBoard")){
             String ruta = request.getSession().getServletContext().getRealPath("./icons");
+            String ruta2 = request.getSession().getServletContext().getRealPath("./Usuarios/"+user+"/imagenes");
             Images imagenes =  new Images(ruta,"icons");
+            Images imagenes2 =  new Images(ruta2,"Usuarios/"+user+"/imagenes");
             List<Listas> totalimag = imagenes.generateLists();
+            List<Listas> totalimag2 = imagenes2.generateLists();
             out.println("<!DOCTYPE html>");
             out.println("<html lang='es' class=''>");
             out.println("<head>");
@@ -238,6 +236,10 @@ public class Storyboardsprof extends HttpServlet {
             out.println("<title>Document</title>");
             out.println("</head>");
             out.println("<body class=''>");
+            for (int i = 0; i < totalimag2.size(); i++) {
+                Listas l = totalimag2.get(i);
+                totalimag.add(l);
+            }
             out.println("<nav class='navbar navbar-expand-lg navbar-dark' style='background: #3E6DB1'>");
             out.println("<a class='navbar-brand' href='#'>Navbar</a>");
             out.println("<ul class='navbar-nav mr-auto'>");
@@ -318,6 +320,9 @@ public class Storyboardsprof extends HttpServlet {
             out.println("<div class='container-fluid'>");
             // out.println("<div class='text-center'>");
             out.println("<ul class='nav nav-tabs' role='tablist'>");
+            
+            
+
             for (int i = 0; i < totalimag.size(); i++) {
                 Listas l = totalimag.get(i);
                 out.println("<li role='presentation' class='active'><a href='#"+l.name+"' aria-controls='"+l.name+"' role='tab' data-toggle='tab'>"+l.name+"</a>");
@@ -327,12 +332,10 @@ public class Storyboardsprof extends HttpServlet {
             for (int i = 0; i < totalimag.size(); i++) {
                 Listas l = totalimag.get(i);
                 List<String> pnglist = (List<String>)l.PNGlList;
-                List<String> svglist = (List<String>)l.SVGList;
                 out.println("<div role='tabpanel' class='tab-pane ' id='"+l.name+"'>");
 
                 for (int j = 0; j < pnglist.size(); j++) {
                     String r = pnglist.get(j);
-                    String ruta2 = svglist.get(j);
                     out.println("<div id ='1' class='btn btn-info iconos' name='"+r+"'><img src='"+r+"' alt='' class='img-responsive' width='60' height='60' draggable='true' /></div>");
                 }
 
@@ -352,5 +355,187 @@ public class Storyboardsprof extends HttpServlet {
             out.println("</body>");
             out.println("</html>");        
         }     
+        if (tipo.equals("Imagen")) {
+
+            out.println("<!DOCTYPE html>");
+            out.println("<html lang='es' class=''>");
+            out.println("<head>");
+            out.println("<title>Profesor</title>");
+            out.println("<meta charset='UTF-8'>");
+            out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+            out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>");
+            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>");
+            out.println("<script src='./jss/readXML.js'></script>");
+            out.println("<link rel='stylesheet' href='./css/login.css' type='text/css'>");
+            out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.12/css/all.css' integrity='sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9' crossorigin='anonymous'>");  
+            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.1.0/fabric.all.min.js' ></script>");
+            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>");
+            out.println("<script src='./jss/canvas.js'></script>");
+            out.println("<script src='./jss/jscolor.js'></script>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>");
+            out.println("<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>");
+            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>");
+            out.println("<link rel='stylesheet' href='./css/css1.css'>");   
+            out.println("<meta http-equiv='X-UA-Compatible' content='ie=edge'>");
+            out.println("<title>Document</title>");
+            out.println("</head>");
+            out.println("<body class='h-100'>");
+            out.println("<nav class='navbar navbar-expand-lg navbar-dark' style='background: #3E6DB1'>");
+            out.println("<a class='navbar-brand' href='#'>Navbar</a>");
+            out.println("<ul class='navbar-nav mr-auto'>");
+            out.println("<li class='nav-item active'>");
+            out.println("<a class='nav-link' href='./Profesor?user='"+user+"'>Inicio</a>");
+            out.println("</li>");
+    
+            out.println("</ul>");
+            out.println("<ul class='navbar-nav ml-auto'>");
+            out.println("<li class='nav-item'>");
+            out.println("<a class='nav-link' href='login.html'><i class='fas fa-sign-out-alt'></i></a>");
+            out.println("</li>");
+            out.println("</ul>");
+            out.println("</nav>");
+            out.println("<div class='container-fluid h-100'>");
+            out.println("<div class='row justify-content-center h-100'>");
+            out.println("<div class='col-2' style='background: rgb(33, 37, 41)'>");
+            
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='pb-2 mt-4 mb-2 border-bottom' style='font-family: Snell Roundhand, cursive;' align='center'>");
+            out.println("<h3><b>StoryOnline</b></h3>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='pb-2 mt-4 mb-2' >");
+            out.println("<div class='container'>");
+        
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='pb-2 mt-4 mb-2' >");
+            out.println("<div class='container'>");
+            out.println("<ul class='nav flex-column'>");
+            out.println("<li class='nav-item'>");
+            out.println("<a class='nav-link' href='MainStoryBoards'>Storyboards</a>");
+            out.println("</li>");
+            out.println("</ul>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("<div class='col-10' style='background: rgb(255, 255, 255)'>");
+            out.println("<div class='container'>");
+            out.println("<br/>");
+            out.println("<br/>");
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='col-4'>");
+            out.println("<h3>Selecciona la imagen a subir</h3>");
+            out.println("<form action = 'UploadServletImagen' method = 'post'  enctype = 'multipart/form-data'>");
+            out.println("<label class='btn btn-primary'>Buscar<input name='file' type='file' style='display: none;'></label>");
+            out.println("<label class='btn btn-primary'>Subir Archivo<input type = 'submit' style='display: none;'/></label>");
+            out.println("</form>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</body>");
+            out.println("</html>");
+            
+        }
+        if (tipo.equals("Audio")) {
+
+            out.println("<!DOCTYPE html>");
+            out.println("<html lang='es' class=''>");
+            out.println("<head>");
+            out.println("<title>Profesor</title>");
+            out.println("<meta charset='UTF-8'>");
+            out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+            out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>");
+            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>");
+            out.println("<script src='./jss/readXML.js'></script>");
+            out.println("<link rel='stylesheet' href='./css/login.css' type='text/css'>");
+            out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.12/css/all.css' integrity='sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9' crossorigin='anonymous'>");  
+            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.1.0/fabric.all.min.js' ></script>");
+            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>");
+            out.println("<script src='./jss/canvas.js'></script>");
+            out.println("<script src='./jss/jscolor.js'></script>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>");
+            out.println("<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>");
+            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>");
+            out.println("<link rel='stylesheet' href='./css/css1.css'>");   
+            out.println("<meta http-equiv='X-UA-Compatible' content='ie=edge'>");
+            out.println("<title>Document</title>");
+            out.println("</head>");
+            out.println("<body class='h-100'>");
+            out.println("<nav class='navbar navbar-expand-lg navbar-dark' style='background: #3E6DB1'>");
+            out.println("<a class='navbar-brand' href='#'>Navbar</a>");
+            out.println("<ul class='navbar-nav mr-auto'>");
+            out.println("<li class='nav-item active'>");
+            out.println("<a class='nav-link' href='./Profesor?user='"+user+"'>Inicio</a>");
+            out.println("</li>");
+    
+            out.println("</ul>");
+            out.println("<ul class='navbar-nav ml-auto'>");
+            out.println("<li class='nav-item'>");
+            out.println("<a class='nav-link' href='login.html'><i class='fas fa-sign-out-alt'></i></a>");
+            out.println("</li>");
+            out.println("</ul>");
+            out.println("</nav>");
+            out.println("<div class='container-fluid h-100'>");
+            out.println("<div class='row justify-content-center h-100'>");
+            out.println("<div class='col-2' style='background: rgb(33, 37, 41)'>");
+            
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='pb-2 mt-4 mb-2 border-bottom' style='font-family: Snell Roundhand, cursive;' align='center'>");
+            out.println("<h3><b>StoryOnline</b></h3>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='pb-2 mt-4 mb-2' >");
+            out.println("<div class='container'>");
+        
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='pb-2 mt-4 mb-2' >");
+            out.println("<div class='container'>");
+            out.println("<ul class='nav flex-column'>");
+            out.println("<li class='nav-item'>");
+            out.println("<a class='nav-link' href='MainStoryBoards'>Storyboards</a>");
+            out.println("</li>");
+            out.println("</ul>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("<div class='col-10' style='background: rgb(255, 255, 255)'>");
+            out.println("<div class='container'>");
+            out.println("<br/>");
+            out.println("<br/>");
+            out.println("<div class='row justify-content-center'>");
+            out.println("<div class='col-4'>");
+            out.println("<h3>Selecciona la imagen a subir</h3>");
+            out.println("<form action = 'UploadServletAudio' method = 'post'  enctype = 'multipart/form-data'>");
+            out.println("<label class='btn btn-primary'>Buscar<input name='file' type='file' style='display: none;'></label>");
+            out.println("<label class='btn btn-primary'>Subir Archivo<input type = 'submit' style='display: none;'/></label>");
+            out.println("</form>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</body>");
+            out.println("</html>");
+            
+        }
     }
 }

@@ -28,6 +28,10 @@ public class Registro extends HttpServlet {
 		handler.start();
 		new File(ruta2 +"/"+request.getParameter("user")).mkdir();
 		new File(ruta2 +"/"+request.getParameter("user")+"/videos").mkdir();
+		new File(ruta2 +"/"+request.getParameter("user")+"/imagenes").mkdir();
+		new File(ruta2 +"/"+request.getParameter("user")+"/imagenes/Misimagenes").mkdir();
+		new File(ruta2 +"/"+request.getParameter("user")+"/imagenes/Misimagenes/png").mkdir();
+		new File(ruta2 +"/"+request.getParameter("user")+"/audios").mkdir();
 		File source = new File(ruta2 + "/base.xml");
 		File dest = new File(ruta2 +"/"+request.getParameter("user") +"/base.xml");
 		try {

@@ -3,7 +3,6 @@ $(document).ready(function() {
 
     $('#savetext').click(function (){
         x = getdata();
-        alert(x);
         $('#textosummer').val(x);
         return true;
     });

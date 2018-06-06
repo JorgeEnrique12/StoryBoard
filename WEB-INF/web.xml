@@ -180,5 +180,124 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         <servlet-name>playvideo</servlet-name>
         <url-pattern>/playvideo</url-pattern>
     </servlet-mapping>
+     
+      <servlet>
+        <servlet-name>DeleteVideo</servlet-name>
+        <servlet-class>DeleteVideo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteVideo</servlet-name>
+        <url-pattern>/EliminarVideo</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DeleteText</servlet-name>
+        <servlet-class>DeleteText</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteText</servlet-name>
+        <url-pattern>/EliminarTexto</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteStory</servlet-name>
+        <servlet-class>DeleteStory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteStory</servlet-name>
+        <url-pattern>/EliminarStory</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Modifystoryboard</servlet-name>
+        <servlet-class>Modifystoryboard</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Modifystoryboard</servlet-name>
+        <url-pattern>/Modifystoryboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateStoryBoard</servlet-name>
+        <servlet-class>UpdateStoryBoard</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateStoryBoard</servlet-name>
+        <url-pattern>/UpdateStoryBoard</url-pattern>
+    </servlet-mapping>
+
+        <servlet>
+        <servlet-name>ModifyTexto</servlet-name>
+        <servlet-class>ModifyTexto</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModifyTexto</servlet-name>
+        <url-pattern>/ModifyTexto</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateText</servlet-name>
+        <servlet-class>UpdateText</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateText</servlet-name>
+        <url-pattern>/UpdateText</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateXMLImagen</servlet-name>
+        <servlet-class>UpdateXMLImagen</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateXMLImagen</servlet-name>
+        <url-pattern>/UpdateXMLImagen</url-pattern>
+    </servlet-mapping>
+
+ <servlet>
+        <servlet-name>UploadServletImagen</servlet-name>
+        <servlet-class>UploadServletImagen</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServletImagen</servlet-name>
+        <url-pattern>/UploadServletImagen</url-pattern>
+    </servlet-mapping>
+
+
+   <servlet>
+        <servlet-name>DeleteImage</servlet-name>
+        <servlet-class>DeleteImage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteImage</servlet-name>
+        <url-pattern>/EliminarImagen</url-pattern>
+    </servlet-mapping>
+
+
+ <servlet>
+        <servlet-name>UploadServletAudio</servlet-name>
+        <servlet-class>UploadServletAudio</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServletAudio</servlet-name>
+        <url-pattern>/UploadServletAudio</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateXMLAudio</servlet-name>
+        <servlet-class>UpdateXMLAudio</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateXMLAudio</servlet-name>
+        <url-pattern>/UpdateXMLAudio</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteAudio</servlet-name>
+        <servlet-class>DeleteAudio</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAudio</servlet-name>
+        <url-pattern>/EliminarAudio</url-pattern>
+    </servlet-mapping>
+
+    
 </web-app>

@@ -20,15 +20,11 @@ public class Images {
                 if (file.isDirectory()) {
                     File lastdir = new File(ruta +"/"+file.getName() + "/png");
                     List<String> PNG = new ArrayList<>();
-                    List<String> SVG = new ArrayList<>();
                     for (File ffiles : lastdir.listFiles()) {
                         String ruta1 = ffiles.getName();
                         PNG.add(secondruta +"/"+file.getName() + "/png/" + ruta1);
-                        String complement = ruta1.substring(0,ruta1.length() - 3);
-                        File svg = new File(ruta +"/"+file.getName() + "/svg/" + complement + "svg");
-                        SVG.add(secondruta +"/"+file.getName() + "/svg/" +svg.getName());
                     }
-                    Listas l = new Listas(file.getName(), PNG, SVG);
+                    Listas l = new Listas(file.getName(), PNG);
                     imagenes.add(l);
                 }        
             }

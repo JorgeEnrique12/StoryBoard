@@ -23,6 +23,10 @@ public class MainStoryBoards extends HttpServlet {
         List<Texto> textos = lt.generateList();
         ListStoryboards lc = new ListStoryboards(ruta);
         List<CStoryBoard> stories = lc.generateList();
+        ListImages li = new ListImages(ruta);
+        List<Imagen> imagenes = li.generateList();
+        ListAudios la = new ListAudios(ruta);
+        List<Audio> audios = la.generateList();
         out.println("<!DOCTYPE html>");
         out.println("<html lang='es' style = 'min-height: 100%;'>");
         out.println("<head>");
@@ -34,6 +38,7 @@ public class MainStoryBoards extends HttpServlet {
         out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>");
         out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>");
         out.println("<script src='./jss/readXML.js'></script>");
+        out.println("<script src='./jss/profesor.js'></script>");
         out.println("<link rel='stylesheet' href='./css/login.css' type='text/css'>");
         out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.12/css/all.css' integrity='sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9' crossorigin='anonymous'>");
         out.println("<meta http-equiv='X-UA-Compatible' content='ie=edge'>");
@@ -93,18 +98,19 @@ public class MainStoryBoards extends HttpServlet {
         
         int cont = 0;
         for (Video v : videos) {
+            String name = v.name;
             out.println("<div class='col-3'>");
             out.println("<div class='card '>");
             out.println("<div class='card-header text-left'>");
             out.println("<i class='fas fa-file-video'></i>");
             out.println("</div>");
             out.println("<div class='card-body text-center'>");
-            out.println("<h5 class='card-title'>"+v.name+"</h5>");
+            out.println("<h5 class='card-title'>"+name+"</h5>");
             out.println("<p class='card-text'><img src='./img/video.png' class='img-fluid' width='50'>");
             out.println("</div>");
             out.println("<div class='card-footer text-muted text-center'>");
-            out.println("<a href='playvideo?ruta="+v.video+"'><button name ='"+v.video+"'class='btn btn-primary' onclick=''><i class='fas fa-play'></i></button></a>");
-            out.println("<button name ='"+v.name+"'class='btn btn-danger' onclick=''><i class='fas fa-trash-alt'></i></button>");
+            out.println("<a href='playvideo?ruta="+v.video+"&name="+name+"'><button name ='"+v.video+"'class='btn btn-primary' onclick=''><i class='fas fa-play'></i></button></a>");
+            out.println("<button name ='"+name+"'class='btn btn-danger' onclick='confirmvideo(this.name);'><i class='fas fa-trash-alt'></i></button>");
             out.println("</div>");
             out.println("</div>");
             out.println("</div>");
@@ -131,9 +137,8 @@ public class MainStoryBoards extends HttpServlet {
             out.println("<p class='card-text'><i class='far fa-file-alt' style =' font-size:3em;'></i>");
             out.println("</div>");
             out.println("<div class='card-footer text-muted text-center'>");
-            
-            out.println("<button name ='"+t.name+"'class='btn btn-warning' onclick=''><i class='fas fa-pencil-alt'></i></button>");
-            out.println("<button name ='"+t.name+"'class='btn btn-danger' onclick=''><i class='fas fa-trash-alt'></i></button>");
+            out.println("<button name ='"+t.name+"'class='btn btn-warning' onclick='modifytexto(this.name);'><i class='fas fa-pencil-alt'></i></button>");
+            out.println("<button name ='"+t.name+"'class='btn btn-danger' onclick='confirmtext(this.name);'><i class='fas fa-trash-alt'></i></button>");
             out.println("</div>");
             out.println("</div>");
             out.println("</div>");
@@ -159,8 +164,8 @@ public class MainStoryBoards extends HttpServlet {
             out.println("<p class='card-text'><i class='fas fa-image' style =' font-size:3em;'></i>");
             out.println("</div>");
             out.println("<div class='card-footer text-muted text-center'>");
-            out.println("<button name ='"+s.name+"'class='btn btn-warning' onclick=''><i class='fas fa-pencil-alt'></i></button>");
-            out.println("<button name ='"+s.name+"'class='btn btn-danger' onclick=''><i class='fas fa-trash-alt'></i></button>");
+            out.println("<button name ='"+s.name+"'class='btn btn-warning' onclick='modifystory(this.name);'><i class='fas fa-pencil-alt'></i></button>");
+            out.println("<button name ='"+s.name+"'class='btn btn-danger' onclick='confirmstory(this.name);'><i class='fas fa-trash-alt'></i></button>");
             out.println("</div>");
             out.println("</div>");
             out.println("</div>");
@@ -172,6 +177,59 @@ public class MainStoryBoards extends HttpServlet {
         if ((cont+1)%4 != 0) {
             out.println("</div>");
         }
+
+        out.println("<h1>Imagenes</h1>");
+        out.println("<div class='row'>");
+        for (Imagen s : imagenes) {
+            out.println("<div class='col-3'>");
+            out.println("<div class='card'>");
+            out.println("<div class='card-header text-left' >");
+            out.println("<i class='fas fa-images'></i>");
+            out.println("</div>");
+            out.println("<div class='card-body text-center'>");
+            out.println("<h5 class='card-title'>"+s.name+"</h5>");
+            out.println("<p class='card-text'><img src='."+s.imagen+"' alt='' class='img-responsive' width='80' height='80'/></i>");
+            out.println("</div>");
+            out.println("<div class='card-footer text-muted text-center'>");
+            out.println("<button name ='"+s.name+"'class='btn btn-danger' onclick='confirmimagen(this.name);'><i class='fas fa-trash-alt'></i></button>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            if ((cont+1)%4 == 0) {
+                out.println("</div>");
+                out.println("<div class='row'>");
+            }
+        }
+        if ((cont+1)%4 != 0) {
+            out.println("</div>");
+        }
+
+        out.println("<h1>Audios</h1>");
+        out.println("<div class='row'>");
+        for (Audio s : audios) {
+            out.println("<div class='col-4'>");
+            out.println("<div class='card'>");
+            out.println("<div class='card-header text-left' >");
+            out.println("<i class='fas fa-images'></i>");
+            out.println("</div>");
+            out.println("<div class='card-body text-center'>");
+            out.println("<h5 class='card-title'>"+s.name+"</h5>");
+            out.println("<p class='card-text'> <audio controls style = 'width: 100px;'><source src='."+s.audio+"' type='audio/mp3'></audio>");
+            out.println("</div>");
+            out.println("<div class='card-footer text-muted text-center'>");
+            out.println("<button name ='"+s.name+"'class='btn btn-danger' onclick='confirmaudio(this.name);'><i class='fas fa-trash-alt'></i></button>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            if ((cont+1)%3 == 0) {
+                out.println("</div>");
+                out.println("<div class='row'>");
+            }
+        }
+        if ((cont+1)%3 != 0) {
+            out.println("</div>");
+        }
+
         out.println("<br/>");
         out.println("<br/>");
         out.println("<br/>");

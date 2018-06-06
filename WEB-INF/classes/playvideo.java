@@ -16,7 +16,7 @@ public class playvideo extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        String name = (String)session.getAttribute("nombre_story");      
+        String name = request.getParameter("name");      
         String user = (String)session.getAttribute("user");     
             
             

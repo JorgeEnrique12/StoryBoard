@@ -86,13 +86,11 @@ public class StoryBoard extends HttpServlet {
             out.println(l.name);
             out.println("</button>");
             List<String> pnglist = (List<String>)l.PNGlList;
-            List<String> svglist = (List<String>)l.SVGList;
             out.println("<div class = 'containertohide' name = '"+l.name+"'>");
             out.println("<div>");
             out.println("<div class='btn-group container-fluid'>");
             for (int j = 0; j < pnglist.size(); j++) {
                 String r = pnglist.get(j);
-                String ruta2 = svglist.get(j);
                 out.println("<button id ='1' class='btn btn-info iconos' name='"+r+"'><img src='"+r+"' alt='' class='img-responsive' width='60' height='60'/></button>");
                 if ((j+1)%8==0) {
                     out.println("</div>");

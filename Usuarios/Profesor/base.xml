@@ -1,39 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StoryBoards>
-    <StoryBoard>
-        <Nombre>Texto</Nombre>
-        <Texto>Jorge Enrique Maldonado Carpio</Texto>
-        <Tipo>Texto</Tipo>
-    </StoryBoard>
-    <StoryBoard>
-        <Nombre>HISTORIA BONITA</Nombre>
-        <Texto>&lt;p&gt;ESTA ES UNA HISTORIA BONITA&lt;/p&gt;</Texto>
-        <Tipo>Texto</Tipo>
-    </StoryBoard>
-    <StoryBoard>
-        <Nombre>Story1</Nombre>
-            <Tipo>StoryBoard</Tipo>
-            <Slides numero="1">
-                <slide>{"objects":[{"type":"image","originX":"center","originY":"center","left":106.8,"top":513,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Animales/png/002-whale.png","filters":[]},{"type":"image","originX":"center","originY":"center","left":203.8,"top":473,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Animales/png/004-flower.png","filters":[]},{"type":"image","originX":"center","originY":"center","left":317.8,"top":406,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Animales/png/005-mushroom.png","filters":[]}],"background":""}</slide>
-            </Slides>
-    </StoryBoard>
-    <StoryBoard>
-        <Nombre>Prueba1</Nombre>
-        <Tipo>StoryBoard</Tipo>
-        <Slides numero="3">
-            <slide>{"objects":[{"type":"image","originX":"center","originY":"center","left":150,"top":150,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Bebidas/png/003-beers.png","filters":[]},{"type":"image","originX":"center","originY":"center","left":295,"top":187,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Bebidas/png/004-tomato-juice.png","filters":[]}],"background":""}</slide>
-            <slide>{"objects":[{"type":"image","originX":"center","originY":"center","left":150,"top":150,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Bebidas/png/007-punch.png","filters":[]},{"type":"image","originX":"center","originY":"center","left":150,"top":150,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Bebidas/png/006-lemonade.png","filters":[]}],"background":""}</slide>
-            <slide>{"objects":[{"type":"image","originX":"center","originY":"center","left":150,"top":150,"width":150,"height":150,"fill":"rgb(0,0,0)","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":null,"visible":true,"src":"http://localhost:8080/StoryBoard/icons/Bebidas/png/010-chocolate.png","filters":[]}],"background":""}</slide>
-        </Slides>
-    </StoryBoard>
-    <StoryBoard>
-        <Nombre>Video1</Nombre>
-        <Video>/Usuarios/Profesor/videos/2.jpg</Video>
-        <Tipo>Video</Tipo>
-    </StoryBoard>
-    <StoryBoard>
-        <Nombre>Video2</Nombre>
-        <Video>/Usuarios/Profesor/videos/formulario.html</Video>
-        <Tipo>Video</Tipo>
-    </StoryBoard>
-<StoryBoard><Nombre>VideoPrueba</Nombre><Video>/Usuarios/Profesor/videos/video.mp4</Video><Tipo>Video</Tipo></StoryBoard></StoryBoards>
+
+</StoryBoards>

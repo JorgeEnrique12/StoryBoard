@@ -47,7 +47,7 @@ public class ListTextos {
 		}
     return textos;
 	}
-	public Texto getOneVideo(String texto){
+	public Texto getOneText(String texto){
 
 		Texto textosend = new Texto();
 		for (int i = 0; i < list.size(); i++) {
@@ -56,7 +56,7 @@ public class ListTextos {
 			 if (name.equals(texto)) {
                     textosend.name = name;
                     textosend.tipo = node.getChildText("Tipo");
-                    textosend.texto = node.getChildText("Video");
+                    textosend.texto = node.getChildText("Texto");
 					textoXML = node;
 					indiceTexto = i;
 					return textosend;
@@ -65,10 +65,8 @@ public class ListTextos {
 
 		return textosend;
 	}
-	public void updateTexto(Element node,String Nombre,String Texto, String Tipo){
-		node.getChild("Nombre").setText(Nombre);
+	public void updateTexto(Element node,String Texto){
 		node.getChild("Texto").setText(Texto);
-		node.getChild("Tipo").setText(Tipo);
 		save();
 	}
 	public void deleteTexto(){

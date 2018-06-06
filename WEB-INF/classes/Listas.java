@@ -5,11 +5,9 @@ import java.util.List;
 public class Listas {
     String name;
     List PNGlList ;
-    List SVGList;
 
-    public Listas(String name,List PNGlList,List SVGlList){
+    public Listas(String name,List PNGlList){
         this.name = name;
         this.PNGlList = PNGlList;
-        this.SVGList = SVGlList;
     }
 }

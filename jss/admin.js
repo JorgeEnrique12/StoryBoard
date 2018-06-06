@@ -9,3 +9,4 @@ function confirmf(user){
 function Redirect(URL){
     window.location.assign(URL)
 }
+
