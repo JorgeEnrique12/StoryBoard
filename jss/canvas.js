@@ -129,8 +129,14 @@ $(document).ready(function(){
           canvas.selection = true;
           canvas.renderAll();
           canvas.calcOffset();
-
     });
+
+    $('#button4').click(function() {
+      texto = $("#textocanvas").val();
+      var text = new fabric.Text(texto, { left: 100, top: 100 });
+      canvas.add(text);
+    });
+
     $('.iconos').click(function() {
       var ruta = this.getAttribute('name');
       fabric.Image.fromURL(ruta, function(myImg) {
